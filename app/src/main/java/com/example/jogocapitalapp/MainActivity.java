@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         this.sortEstado();
     }
 
@@ -42,8 +43,12 @@ public class MainActivity extends AppCompatActivity {
         if(vezes == 5){
             Button enviar = findViewById(R.id.enviar);
             Button proximo = findViewById(R.id.proximo);
+            Button reiniciar = findViewById(R.id.reiniciar);
             enviar.setEnabled(false);
             proximo.setEnabled(false);
+            reiniciar.setVisibility(view.VISIBLE);
+            enviar.setVisibility(view.INVISIBLE);
+            proximo.setVisibility(view.INVISIBLE);
             return;
         }
         Button enviar = findViewById(R.id.enviar);
@@ -74,6 +79,29 @@ public class MainActivity extends AppCompatActivity {
         this.sortEstado();
         Button enviar = findViewById(R.id.enviar);
         enviar.setEnabled(true);
+
+
+    }
+
+    public void reiniciar(View view){
+        estadosList = getEstados();
+        vezes = 0;
+        pontos = 0;
+        Button enviar = findViewById(R.id.enviar);
+        Button proximo = findViewById(R.id.proximo);
+        Button reiniciar = findViewById(R.id.reiniciar);
+        reiniciar.setVisibility(view.INVISIBLE);
+        enviar.setVisibility(view.VISIBLE);
+        proximo.setVisibility(view.VISIBLE);
+        proximo.setEnabled(true);
+        enviar.setEnabled(true);
+        TextView resp = findViewById(R.id.resposta);
+        EditText perg = findViewById(R.id.pergunta);
+        TextView pt = findViewById(R.id.pontuacao);
+        perg.setText("");
+        resp.setText("");
+        pt.setText("");
+        this.sortEstado();
 
     }
 

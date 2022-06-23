@@ -72,11 +72,11 @@
         android:id="@+id/enviar"
         android:layout_width="189dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="52dp"
+        android:layout_marginBottom="21dp"
         android:onClick="getResposta"
         android:text="Responder"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/proximo"
+        app:layout_constraintBottom_toTopOf="@+id/reiniciar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pontuacao" />
@@ -85,12 +85,28 @@
         android:id="@+id/proximo"
         android:layout_width="168dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="223dp"
+        android:layout_marginBottom="180dp"
         android:onClick="proximaPergunta"
         android:text="Proximo"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reiniciar" />
+
+    <Button
+        android:id="@+id/reiniciar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="33dp"
+        android:layout_marginBottom="27dp"
+        android:onClick="reiniciar"
+        android:text="Reiniciar"
+        android:textSize="20sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/proximo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.423"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/enviar" />
 
