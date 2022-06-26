@@ -35,12 +35,26 @@ public class MainActivity extends AppCompatActivity {
     public void getResposta(View view){
         vezes = vezes + 1;
         EditText pergunta = findViewById(R.id.pergunta);
+        TextView pt = findViewById(R.id.pontuacao);
+        TextView resp = findViewById(R.id.resposta);
+
         if(pergunta.getText().toString().equals("")){
             Toast.makeText(this,"Insira uma nome valido", Toast.LENGTH_SHORT).show();
             return;
 
         }
         if(vezes == 5){
+            if(pergunta.getText().toString().equals(estadoPgt.Capital.Nome)){
+                pontos = pontos + 10;
+                pt.setText("Pontuação: " + String.valueOf(pontos));
+                resp.setText("Acertou");
+                estadosList.remove(estadoPgt);
+            }
+            else {
+                pt.setText("Pontuação: " + String.valueOf(pontos));
+                resp.setText("Errou");
+            }
+
             Button enviar = findViewById(R.id.enviar);
             Button proximo = findViewById(R.id.proximo);
             Button reiniciar = findViewById(R.id.reiniciar);
@@ -53,8 +67,6 @@ public class MainActivity extends AppCompatActivity {
         }
         Button enviar = findViewById(R.id.enviar);
         enviar.setEnabled(false);
-        TextView pt = findViewById(R.id.pontuacao);
-        TextView resp = findViewById(R.id.resposta);
         if(pergunta.getText().toString().equals(estadoPgt.Capital.Nome)){
             pontos = pontos + 10;
             pt.setText("Pontuação: " + String.valueOf(pontos));
@@ -120,7 +132,7 @@ public class MainActivity extends AppCompatActivity {
         listEstados.add(new Estado("Alagoas",new Capital("Maceio")));
         listEstados.add(new Estado("Manaus",new Capital("Amazonas")));
         listEstados.add(new Estado("Acre",new Capital("Rio Branco")));
-        listEstados.add(new Estado("Roraima",new Capital("Boa vista")));
+        listEstados.add(new Estado("Roraima",new Capital("Boa Vista")));
         listEstados.add(new Estado("Sergipe",new Capital("Aracaju")));
         listEstados.add(new Estado("Ceara",new Capital("Fortaleza")));
 
